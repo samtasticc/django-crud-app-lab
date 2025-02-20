@@ -1,0 +1,121 @@
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 100%;
+    background-color: var(--bg-parchment);
+    color: var(--text-sepia);
+    font-family: 'Merriweather', 'Garamond', serif;
+}
+
+main > section {
+    width: 100%;
+    padding: 12px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.header-logo-container {
+    display: none;
+}
+
+.logo-container {
+    max-width: 375px;
+}
+
+.author-container {
+    width: 80%;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    background: var(--bg-parchment);
+    border: 2px solid var(--border-color);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+}
+
+.login h1 {
+    font-size: clamp(3.2rem, 3vw, 4.8rem);
+    margin: 10px 0;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    font-variant: small-caps;
+}
+
+.login > p {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 14px 0 0px;
+    font-size: var(--font-reg);
+}
+
+.login label {
+    font-size: var(--font-reg);
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.login input {
+    font-size: var(--font-l);
+    padding: 6px 10px;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background: var(--bg-parchment);
+    color: var(--text-dark);
+    font-family: inherit;
+}
+
+.login input:focus {
+    outline: none;
+    border-color: var(--accent-green);
+    box-shadow: 0px 0px 8px var(--golden);
+}
+
+.login .btn {
+    align-self: flex-end;
+    margin-right: 0;
+    margin-top: 16px;
+    background: var(--button-bg);
+    color: var(--text-sepia);
+    border-color: var(--border-color);
+    font-size: var(--font-l);
+    text-transform: uppercase;
+    font-weight: 700;
+    box-shadow: var(--card-shadow);
+}
+
+.login .btn:hover {
+    background: var(--button-hover);
+    color: var(--bg-parchment);
+    border-color: var(--golden);
+}
+
+@media only screen and (min-width: 768px) {
+    main {
+        justify-content: space-around;
+    }
+
+    main > section {
+        width: 40%;
+    }
+
+    .login {
+        padding: 25px;
+        border-radius: var(--border-radius);
+        width: 100%;
+    }
+
+    .logo-container {
+        max-width: 520px;
+    }
+}
