@@ -1,4 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap');
+
+
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+:root {
+    font-size: 62.5%;
+    --bg-parchment: #F5E6C4;
+    --text-sepia: #704214;
+    --text-dark: #681511;
+    --nav-bg: #C4A484;
+    --nav-text: #D5B895;
+    --border-color: #5B2C20;
+    --accent-green: #0B3D2E;
+    --golden: #D4AF37;
+    --button-bg: #C4A484;
+    --button-hover: #6a4d30;
+    --link-hover: #0B3D2E;
+    --card-shadow: 5px 5px 6px -1px rgba(90, 55, 20, 0.5);
+    --font-xxl: 4rem;
+    --font-xl: 2.4rem;
+    --font-l: 1.8rem;
+    --font-reg: 1.6rem;
+    --border-radius: 8px;
+}
+
 body {
-    background-color: #EAD7A7;
-  }
-  
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Courier', 'Courier';
+    background-color: var(--bg-parchment);
+    color: var(--text-sepia);
+    min-height: 100vh;
+}
+
+header {
+    width: 100%;
+    background: var(--nav-bg);
+    border-bottom: 3px solid var(--border-color);
+    font-variant: small-caps;
+    text-transform: uppercase;
+}
+
+nav {
+    margin: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--nav-text);
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+nav a:hover {
+    color: var(--link-hover);
+    text-shadow: 1px 1px 3px var(--golden);
+}
+
+ul {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+}
+
+main {
+    width: 100%;
+    padding: 10px;
+}
+
+h1, h2, h3 {
+    color: var(--text-dark);
+    font-variant: small-caps;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: var(--font-xxl);
+}
+
+h2 {
+    font-size: var(--font-xl);
+}
+
+button, .btn {
+    font-size: var(--font-l);
+    padding: 10px 18px;
+    border-radius: var(--border-radius);
+    border: 2px solid var(--border-color);
+    text-decoration: none;
+    background-color: var(--button-bg);
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover, .btn:hover {
+    background-color: var(--button-hover);
+    color: var(--bg-parchment);
+}
+
+.page-header {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+}
+
+.page-header h1 {
+    font-size: var(--font-xxl);
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.page-content {
+    font-size: var(--font-reg);
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.card {
+    background: var(--bg-parchment);
+    border: 2px solid var(--border-color);
+    padding: 15px;
+    box-shadow: var(--card-shadow);
+    border-radius: var(--border-radius);
+    margin: 10px;
+}
+
+.card p {
+    font-size: 15px;
+    color: black;
+    font-family: 'Literata';
+}
+
+@media only screen and (min-width: 768px) {
+    header {
+        position: sticky;
+        display: flex;
+        flex-direction: row;
+        top: 0;
+        align-items: center;
+    }
+
+    main {
+        max-width: 1300px;
+        min-height: calc(100vh - 53px);
+    }
+
+    nav {
+        margin-left: auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    nav ul {
+        flex-wrap: nowrap;
+    }
+
+    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+        header {
+            background: var(--nav-bg);
+            -webkit-backdrop-filter: blur(3px);
+            backdrop-filter: blur(3px);
+        }
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    main {
+        min-height: calc(100vh - 55px);
+    }
+
+    header {
+        margin: 20px 20px 0;
+        width: calc(100vw - 40px);
+        max-width: 1920px;
+        top: 20px;
+        background-color: transparent;
+        border-bottom: none;
+    }
+
+    nav {
+        background: var(--accent-green);
+        border: 2px solid var(--golden);
+        border-radius: 18px;
+        padding: 8px 16px;
+    }
+
+    nav a {
+        font-size: 1.6rem;
+        font-weight: bold;
+    }
+
+    .card {
+        border-color: var(--golden);
+    }
+
+    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+        header {
+            -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+        }
+    }
+}
