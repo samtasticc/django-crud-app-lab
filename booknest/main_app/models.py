@@ -1,6 +1,6 @@
 from django.db import models
 
-class Author:
+class Author(models.Model):
     name = models.CharField(max_length=100)
     age = models.IntegerField()
     genre = models.CharField(max_length=100)

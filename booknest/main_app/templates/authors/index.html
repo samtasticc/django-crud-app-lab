@@ -13,23 +13,24 @@
 </section>
 
 <section class="card-container">
-  {% for author in authors %}
-    <div class="card">
-      <div class="card-content">
-        <div class="card-img-container">
-          <img
-            src="{% static '' %}"
-            alt=""
-          />
-        </div>
-        <h2 class="card-title">{{ author.name }}, {{ author.nationality}}, {{author.age}}</h2>
-        {% if author.age > 0 %}
-        <p>A {{ author.age }} year old {{ author.nationality }}</p>
-        {% endif %}
-        <p><small>{{ author.bio }}</small></p>
+    {% for author in authors %}
+      <div class="card">
+        <a href="{ url 'author-detail' author.id }">
+          <div class="card-content">
+            <div class="card-img-container">
+              <img
+                src="{% static '' %}"
+                alt=""
+              />
+            </div>
+            <h2 class="card-title">{{ author.name }}, {{ author.nationality}}, {{author.age}}</h2>
+            {% if author.age > 0 %}
+            <p>A {{ author.age }} year old {{ author.nationality }}</p>
+            {% endif %}
+            <p><small>{{ author.bio }}</small></p>
+          </div>
+        </a>
       </div>
-    </div>
-  {% endfor %}
-</section>
-
+    {% endfor %}
+  </section>
 {% endblock %}

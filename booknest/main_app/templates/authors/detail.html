@@ -1,0 +1,21 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/authors/author-detail.css' %}" />
+{% endblock %} 
+{% block content %}
+<section class="author-container">
+  <div class="author-img">
+    <img src="{% static '' %}" alt="" />
+  </div>
+  <div class="author-details">
+    <h1>{{ author.name }}</h1>
+    {% if author.age > 0 %}
+      <h2>An {{ author.age }} year old {{ author.nationality }} author</h2>
+    {% else %}
+      <h2>A {{ author.nationality }} author.</h2>
+    {% endif %}
+    <p>{{ author.bio }}</p>
+  </div>
+</section>
+{% endblock %}
