@@ -12,4 +12,4 @@ class Author(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('author-detail', kwargs={'cat_id': self.id})
+        return reverse('author-detail', kwargs={'author_id': self.id})

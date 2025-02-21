@@ -6,7 +6,11 @@
 {% block content %}
 
 <div class="page-header">
-  <h1>Add an Author</h1>
+  {% if cat %}
+    <h1>Edit {{ author.name }}</h1>
+  {% else %}
+    <h1>Add an Author</h1>
+  {% endif %}
 </div>
 
 <form action="" method="post" class="form-container">

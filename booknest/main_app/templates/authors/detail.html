@@ -16,6 +16,10 @@
       <h2>A {{ author.nationality }} author.</h2>
     {% endif %}
     <p>{{ author.bio }}</p>
+    <div class="author-actions">
+      <a href="{% url 'author-update' author.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'author-delete' author.id %}" class="btn danger">Delete</a>
+    </div>
   </div>
 </section>
 {% endblock %}
