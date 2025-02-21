@@ -1,0 +1,94 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: var(--bg-parchment);
+    padding: 20px;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    font-family: 'Merriweather', 'Garamond', serif;
+}
+
+table {
+    padding: 0 40px;
+    width: 100%;
+    border-spacing: 0 16px;
+    border-collapse: separate;
+    font-size: var(--font-reg);
+    color: var(--text-dark);
+}
+
+th {
+    text-align: left;
+    padding: 6px 20px 0 0;
+    font-weight: bold;
+    vertical-align: top;
+    font-size: var(--font-reg);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+td {
+    max-width: 60%;
+    padding: 8px 10px;
+    border-radius: var(--border-radius);
+    background: rgba(11, 61, 46, 0.05); /* Light green tint for vintage effect */
+    font-size: var(--font-l);
+}
+
+td > * {
+    width: 100%;
+    padding: 6px 10px;
+    font-size: var(--font-l);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background: var(--bg-parchment);
+    color: var(--text-dark);
+    font-family: inherit;
+    transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+td > textarea {
+    height: calc(4 * var(--font-l) + 8px);
+    font-family: inherit;
+    resize: vertical;
+}
+
+td > *:focus {
+    outline: none;
+    border-color: var(--accent-green);
+    box-shadow: 0px 0px 8px var(--golden);
+}
+
+.btn {
+    align-self: flex-end;
+    margin-right: 40px;
+    padding: 10px 18px;
+    font-size: var(--font-l);
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--text-sepia);
+    background: var(--button-bg);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background: var(--button-hover);
+    color: var(--bg-parchment);
+    border-color: var(--golden);
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 768px) {
+    table {
+        padding: 0 20px;
+    }
+
+    .btn {
+        margin-right: 20px;
+    }
+}
