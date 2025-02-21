@@ -15,15 +15,24 @@
     <header>
       <div class="header-logo-container">
         <a href="/">
-          <img src="" alt="The BookNest Logo" />
         </a>
       </div>
-      <!-- NAV BAR -->
       <nav>
         <ul>
+          {% if user.is_authenticated %}
             <li><a href="{% url 'author-index' %}">All Authors</a></li>
             <li><a href="{% url 'author-create' %}">Add an Author</a></li>
             <li><a href="{% url 'about' %}">About</a></li>
+            <li>
+              <form id="logout-form" method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit">Log out</button>
+              </form>
+          {% else %}
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'home' %}">Login</a></li>
+            <li><a href="{% url 'signup' %}">Sign Up</a></li>
+          {% endif %}
         </ul>
       </nav>
     </header>
@@ -33,3 +42,6 @@
      </main>
   </body>
 </html>
+
+
+
