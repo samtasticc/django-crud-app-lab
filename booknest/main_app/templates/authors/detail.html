@@ -20,6 +20,42 @@
       <a href="{% url 'author-update' author.id %}" class="btn warn">Edit</a>
       <a href="{% url 'author-delete' author.id %}" class="btn danger">Delete</a>
     </div>
-  </div>
-</section>
+    <div class="books-container">
+      <section class="books">
+        <div class="subsection-title">
+          <h2>Books</h2>
+        </div>
+        <h3>Add a Book</h3>
+          <form action="{% url 'add-book' author.id %}" method="post" class="subsection-content" autocomplete="off">
+            {% csrf_token %} 
+            {{ book_form.as_p }}
+            <button type="submit" class="btn submit">Add Book</button>
+          </form>
+          <!-- here  -->
+          <h3>All Books</h3>
+          {% if author.books_set.all.count %}
+            <table>
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Genre</th>
+                  <th>Date Published</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for book in author.book_set.all %}
+                <tr>
+                  <td>{{book.title}}</td>
+                  <td>{{book.genre}}</td>
+                  <td>{{book.pubdate}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          {% else %}
+            <div class="subsection-content">
+              <p>⚠️ {{author.name}} does not have any books written.</p>
+            </div>
+          {% endif %}
+
 {% endblock %}
