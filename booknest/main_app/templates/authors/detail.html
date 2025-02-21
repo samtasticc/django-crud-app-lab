@@ -5,9 +5,6 @@
 {% endblock %} 
 {% block content %}
 <section class="author-container">
-  <div class="author-img">
-    <img src="{% static '' %}" alt="" />
-  </div>
   <div class="author-details">
     <h1>{{ author.name }}</h1>
     {% if author.age > 0 %}
@@ -31,31 +28,31 @@
             {{ book_form.as_p }}
             <button type="submit" class="btn submit">Add Book</button>
           </form>
-          <!-- here  -->
-          <h3>All Books</h3>
-          {% if author.books_set.all.count %}
-            <table>
-              <thead>
-                <tr>
-                  <th>Title</th>
-                  <th>Genre</th>
-                  <th>Date Published</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for book in author.book_set.all %}
-                <tr>
-                  <td>{{book.title}}</td>
-                  <td>{{book.genre}}</td>
-                  <td>{{book.pubdate}}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          {% else %}
-            <div class="subsection-content">
-              <p>⚠️ {{author.name}} does not have any books written.</p>
-            </div>
-          {% endif %}
+        {% if author.book_set.all %}
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Genre</th>
+              <th>Date Published</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for book in author.book_set.all %}
+              <tr>
+                <td>{{book.title}}</td>
+                <td>{{book.genre}}</td>
+                <td>{{book.pubdate}}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% elif not author.book_set.all %}
+        <div class="subsection-content">
+          <p>⚠️ {{ author.name }} does not have any books written.</p>
+        </div>
+      {% endif %}
+      </section>
+    </div>
 
 {% endblock %}
